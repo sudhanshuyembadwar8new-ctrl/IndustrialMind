@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Setup — Sudhanshu-Manvi Supermart</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f4ed;
+      color: #1a2332;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.12);
+      padding: 2rem 1.75rem;
+      max-width: 560px;
+      width: 100%;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(13,122,114,0.1);
+      color: #0d7a72;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.9rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.6; }
+
+    .slot {
+      border: 2px dashed rgba(13,122,114,0.25);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+      position: relative;
+    }
+    .slot:hover { border-color: #0d7a72; background: rgba(13,122,114,0.04); }
+    .slot.loaded { border-style: solid; border-color: #0d7a72; background: rgba(13,122,114,0.05); }
+
+    .slot-header { display: flex; align-items: center; gap: 0.75rem; }
+    .slot-num {
+      width: 2rem; height: 2rem;
+      background: linear-gradient(135deg, #0d7a72, #0a5e58);
+      color: #fff; border-radius: 0.5rem;
+      display: grid; place-items: center;
+      font-size: 0.85rem; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .slot-info { flex: 1; }
+    .slot-name { font-weight: 700; font-size: 0.95rem; }
+    .slot-desc { font-size: 0.78rem; color: #6b7280; }
+    .slot-status { font-size: 0.78rem; font-weight: 600; color: #9ca3af; }
+    .slot.loaded .slot-status { color: #0d7a72; }
+
+    .preview-bar {
+      margin-top: 0.75rem;
+      height: 90px;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      display: none;
+      background: #f0f0f0;
+    }
+    .slot.loaded .preview-bar { display: block; }
+    .preview-bar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    input[type="file"] {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      opacity: 0; cursor: pointer;
+    }
+
+    .btn-apply {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, #0d7a72, #0a5e58);
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      box-shadow: 0 10px 28px rgba(13,122,114,0.22);
+      transition: transform 0.18s, box-shadow 0.18s;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .btn-apply:disabled {
+      background: #d1d5db; box-shadow: none; cursor: not-allowed;
+    }
+    .btn-apply:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(13,122,114,0.28); }
+
+    .note {
+      margin-top: 1.25rem;
+      padding: 0.85rem 1rem;
+      background: rgba(224,123,57,0.08);
+      border-radius: 0.75rem;
+      font-size: 0.82rem;
+      color: #92400e;
+      line-height: 1.55;
+    }
+    .note strong { display: block; margin-bottom: 0.25rem; font-weight: 700; }
+    .progress { display: none; margin-top: 1rem; color: #0d7a72; font-weight: 700; font-size: 0.9rem; text-align: center; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <span class="badge">Image Setup Tool</span>
+  <h1>Add Photos to Your Website</h1>
+  <p class="subtitle">Pick your 3 shop photos below. This tool will automatically save them into your website. No renaming or copying needed!</p>
+
+  <!-- Slot 1 -->
+  <div class="slot" id="slot1">
+    <input type="file" accept="image/*" id="file1" onchange="loadImage(1, this)">
+    <div class="slot-header">
+      <div class="slot-num">1</div>
+      <div class="slot-info">
+        <div class="slot-name">Hero Section — Storefront (Close-up)</div>
+        <div class="slot-desc">The photo with "Sudhanshu Kirana Antergaon" sign</div>
+      </div>
+      <div class="slot-status" id="status1">Tap to pick</div>
+    </div>
+    <div class="preview-bar" id="preview1"><img id="previewImg1" src="" alt=""></div>
+  </div>
+
+  <!-- Slot 2 -->
+  <div class="slot" id="slot2">
+    <input type="file" accept="image/*" id="file2" onchange="loadImage(2, this)">
+    <div class="slot-header">
+      <div class="slot-num">2</div>
+      <div class="slot-info">
+        <div class="slot-name">About Section — Owner Photo</div>
+        <div class="slot-desc">Mangesh Yembadwar inside the shop (right side)</div>
+      </div>
+      <div class="slot-status" id="status2">Tap to pick</div>
+    </div>
+    <div class="preview-bar" id="preview2"><img id="previewImg2" src="" alt=""></div>
+  </div>
+
+  <!-- Slot 3 -->
+  <div class="slot" id="slot3">
+    <input type="file" accept="image/*" id="file3" onchange="loadImage(3, this)">
+    <div class="slot-header">
+      <div class="slot-num">3</div>
+      <div class="slot-info">
+        <div class="slot-name">About Section — Wide Storefront</div>
+        <div class="slot-desc">Wide street view of the shop (left side)</div>
+      </div>
+      <div class="slot-status" id="status3">Tap to pick</div>
+    </div>
+    <div class="preview-bar" id="preview3"><img id="previewImg3" src="" alt=""></div>
+  </div>
+
+  <button class="btn-apply" id="applyBtn" disabled onclick="applyImages()">Apply Images to Website</button>
+  <p class="progress" id="progress">✅ Done! Saved. Reload index.html to see your photos.</p>
+
+  <div class="note">
+    <strong>📌 How it works:</strong>
+    Pick all 3 photos above → Click "Apply Images to Website" → The tool saves the images directly next to your index.html file. Then open index.html in Chrome to see them!
+  </div>
+</div>
+
+<script>
+  const images = { 1: null, 2: null, 3: null };
+
+  function loadImage(slot, input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      images[slot] = { dataUrl: e.target.result, type: file.type, name: file.name };
+      document.getElementById('previewImg' + slot).src = e.target.result;
+      document.getElementById('slot' + slot).classList.add('loaded');
+      document.getElementById('status' + slot).textContent = '✅ ' + file.name;
+      checkReady();
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function checkReady() {
+    const ready = images[1] && images[2] && images[3];
+    document.getElementById('applyBtn').disabled = !ready;
+  }
+
+  function applyImages() {
+    // Save each image as a file using a download link trick
+    saveDataUrl(images[1].dataUrl, 'storefront.jpg');
+    saveDataUrl(images[2].dataUrl, 'owner.jpg');
+    saveDataUrl(images[3].dataUrl, 'storefront2.jpg');
+
+    document.getElementById('progress').style.display = 'block';
+    document.getElementById('applyBtn').textContent = '✅ Images Saved!';
+    document.getElementById('applyBtn').disabled = true;
+  }
+
+  function saveDataUrl(dataUrl, filename) {
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+</script>
+</body>
+</html>

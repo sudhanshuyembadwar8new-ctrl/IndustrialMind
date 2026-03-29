@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070709" />
+  <title>SY Digital | Services</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.87/build/spline-viewer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <style>
+    :root{--bg:#070709;--p:#7c3aed;--c:#06b6d4;--w:#f0f0f0;--m:#8a8a95;--g:rgba(255,255,255,.04);--b:rgba(255,255,255,.08);--wa:#25d366;--sh:0 24px 80px rgba(0,0,0,.45)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;color:var(--w);background:radial-gradient(circle at 15% 10%,rgba(124,58,237,.14),transparent 28%),radial-gradient(circle at 85% 0%,rgba(6,182,212,.12),transparent 24%),var(--bg);overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .page{position:relative;min-height:100vh}
+    .page:before,.page:after{content:"";position:fixed;width:28rem;height:28rem;border-radius:50%;filter:blur(70px);opacity:.18;pointer-events:none}
+    .page:before{left:-10rem;top:14rem;background:var(--p)}
+    .page:after{right:-10rem;bottom:-8rem;background:var(--c)}
+    .container{width:min(1180px,calc(100% - 2rem));margin:0 auto}
+    .nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(7,7,9,.62);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+    .nav-in{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;gap:.9rem;align-items:center}
+    .mark{width:2.35rem;height:2.35rem;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--c));box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;position:relative}
+    .mark:after{content:"";position:absolute;inset:.45rem;border-radius:10px;border:1px solid rgba(255,255,255,.35);transform:rotate(12deg)}
+    .brand-t{font:800 1.05rem 'Syne',sans-serif;background:linear-gradient(135deg,var(--p),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .brand-s{display:block;font-size:.74rem;color:var(--m);margin-top:.08rem}
+    .links{display:flex;gap:1.35rem;list-style:none}
+    .links a{font-size:.92rem;color:var(--m)}
+    .links a:hover,.links a[aria-current="page"]{color:var(--w)}
+    .cta{padding:.78rem 1.25rem;border-radius:100px;background:linear-gradient(135deg,var(--p),#6d28d9);color:#fff;font-size:.9rem;font-weight:500;white-space:nowrap;box-shadow:0 10px 30px rgba(124,58,237,.24)}
+    .hero{padding:8.5rem 0 4rem}
+    .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem .9rem;border:1px solid rgba(6,182,212,.28);border-radius:999px;color:#9ef0ff;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;margin-bottom:1.35rem;background:rgba(6,182,212,.05)}
+    .title{font:800 clamp(2.7rem,6vw,5.4rem)/.98 'Syne',sans-serif;letter-spacing:-.04em;max-width:10ch}
+    .title span{background:linear-gradient(135deg,var(--p),#b48cff 40%,var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .copy{margin-top:1.35rem;max-width:36rem;color:var(--m);line-height:1.8;font-size:1.02rem}
+    .actions{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.92rem 1.35rem;border-radius:100px;border:1px solid transparent;font-size:.94rem;font-weight:500;transition:.2s transform,.2s background,.2s border-color}
+    .btn:hover{transform:translateY(-2px)}
+    .primary{background:linear-gradient(135deg,var(--p),#6d28d9);box-shadow:0 12px 34px rgba(124,58,237,.25)}
+    .outline{border-color:var(--b);background:rgba(255,255,255,.02)}
+    .outline:hover{border-color:rgba(124,58,237,.55);background:rgba(124,58,237,.09)}
+    .scene{position:relative;min-height:520px;border-radius:28px;border:1px solid rgba(255,255,255,.08);background:radial-gradient(circle at 35% 20%,rgba(124,58,237,.22),transparent 35%),radial-gradient(circle at 70% 70%,rgba(6,182,212,.2),transparent 34%),rgba(255,255,255,.025);box-shadow:var(--sh);overflow:hidden;transform-style:preserve-3d}
+    .scene:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 18%),linear-gradient(135deg,transparent 15%,rgba(255,255,255,.04),transparent 34%);z-index:2;pointer-events:none}
+    .scene spline-viewer,.mini spline-viewer{width:100%;height:100%;border-radius:inherit}
+    .badge{position:absolute;left:1rem;top:1rem;z-index:3;display:inline-flex;align-items:center;gap:.55rem;padding:.72rem .9rem;border-radius:16px;background:rgba(7,7,9,.6);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px);font-size:.86rem;color:#d7d7df}
+    .dot{width:.65rem;height:.65rem;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--c));box-shadow:0 0 18px rgba(124,58,237,.75)}
+    .meta{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+    .chip{padding:.95rem 1rem;border-radius:16px;background:rgba(7,7,9,.62);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px)}
+    .label{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--m);margin-bottom:.4rem}
+    .value{font-size:.95rem}
+    .mini-wrap{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    .mini{aspect-ratio:1.35/1;min-height:170px;border-radius:22px;border:1px solid rgba(255,255,255,.08);background:var(--g);overflow:hidden;box-shadow:0 18px 52px rgba(0,0,0,.24)}
+    .mini-cap{margin-top:.75rem;font-size:.88rem;color:var(--m)}
+    .sec{padding:1.5rem 0 2rem}
+    .sec-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.35rem}
+    .sec-title{font:800 clamp(1.8rem,3vw,2.65rem) 'Syne',sans-serif;letter-spacing:-.03em}
+    .sec-note{max-width:34rem;color:var(--m);line-height:1.7;font-size:.98rem}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+    .card{position:relative;border-radius:22px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 18%),rgba(255,255,255,.04);backdrop-filter:blur(18px);overflow:hidden;box-shadow:var(--sh);transform-style:preserve-3d}
+    .card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at 15% 10%,rgba(124,58,237,.14),transparent 28%),radial-gradient(circle at 95% 0%,rgba(6,182,212,.11),transparent 28%)}
+    .card-in{position:relative;padding:1.35rem;z-index:1;transform:translateZ(18px)}
+    .top{display:flex;align-items:start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+    .kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#d9d4ff;margin-bottom:.5rem}
+    .kicker:before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--c));box-shadow:0 0 16px rgba(124,58,237,.6)}
+    .name{font:800 1.42rem/1.05 'Syne',sans-serif;margin-bottom:.55rem}
+    .desc{color:var(--m);line-height:1.65;font-size:.96rem;max-width:40rem}
+    .badge2{padding:.72rem .85rem;border-radius:16px;border:1px solid rgba(124,58,237,.24);background:rgba(124,58,237,.08);color:#f1e9ff;font-size:.85rem;min-width:8.75rem;text-align:right}
+    .badge2 strong{display:block;font-size:1rem;margin-top:.2rem;color:#fff}
+    .offerings{display:grid;gap:.8rem;margin-top:1rem}
+    .offer{padding:1rem;border-radius:18px;border:1px solid var(--b);background:rgba(255,255,255,.03)}
+    .offer-top{display:flex;align-items:center;justify-content:space-between;gap:.9rem;margin-bottom:.55rem}
+    .offer-title{font-weight:700;font-size:1rem}
+    .offer-price{font-weight:700;color:#d7f9ff;white-space:nowrap;font-size:.95rem}
+    .meta2{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:.75rem;font-size:.84rem;color:#b8b8c7}
+    .pill{display:inline-flex;align-items:center;border-radius:999px;padding:.34rem .65rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+    .list{list-style:none;display:grid;gap:.38rem;color:#d0d0da;font-size:.93rem;line-height:1.5}
+    .list li{position:relative;padding-left:1.2rem}
+    .list li:before{content:"";position:absolute;left:0;top:.55rem;width:.45rem;height:.45rem;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--c));box-shadow:0 0 12px rgba(6,182,212,.45)}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
+    .delivery{color:var(--m);font-size:.88rem}.delivery strong{display:block;color:var(--w);font-size:.94rem;margin-top:.25rem}
+    .wa{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.92rem 1.2rem;border-radius:100px;font-weight:600;font-size:.92rem;color:#08140b;background:linear-gradient(135deg,#32e36e,var(--wa));box-shadow:0 14px 30px rgba(37,211,102,.2);white-space:nowrap}
+    .sec-foot{margin-top:1.5rem;color:var(--m);font-size:.92rem}
+    .footer{margin-top:4rem;border-top:1px solid rgba(124,58,237,.4);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
+    .footer-in{width:min(1180px,calc(100% - 2rem));margin:0 auto;padding:2rem 0 1rem;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1.2rem;align-items:start}
+    .footer-name{font:800 1.3rem 'Syne',sans-serif;background:linear-gradient(135deg,var(--p),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.45rem}
+    .footer-copy{color:var(--m);line-height:1.65;max-width:20rem}
+    .footer-links{display:grid;gap:.7rem;justify-items:start}
+    .footer-links a{color:var(--m)}.footer-links a:hover{color:var(--w)}
+    .socials{display:flex;justify-content:flex-end;gap:.75rem;flex-wrap:wrap}
+    .social{width:2.8rem;height:2.8rem;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);transition:.2s transform,.2s background,.2s border-color}
+    .social:hover{transform:translateY(-2px);border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.12)}
+    .bottom{width:min(1180px,calc(100% - 2rem));margin:0 auto;padding:1rem 0 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(255,255,255,.06);color:var(--m);font-size:.9rem}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+    .float{animation:f 6.5s ease-in-out infinite}@keyframes f{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @media (max-width:1080px){.grid,.footer-in{grid-template-columns:1fr}.scene{min-height:460px}.socials{justify-content:flex-start}}
+    @media (max-width:900px){.links{display:none}.cards{grid-template-columns:1fr}}
+    @media (max-width:720px){.hero{padding-top:7.8rem}.title{max-width:none}.meta{grid-template-columns:1fr}.top,.foot,.offer-top{flex-direction:column;align-items:flex-start}.badge2{width:100%;text-align:left}.bottom{flex-direction:column;align-items:flex-start}}
+    @media (max-width:560px){.container,.nav-in,.footer-in,.bottom{width:min(100% - 1.1rem,1180px)}.actions{flex-direction:column}.btn,.cta,.wa{width:100%}.mini-wrap{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="container nav-in">
+        <a class="brand" href="index.html" aria-label="SY Digital home">
+          <span class="mark" aria-hidden="true"></span>
+          <span><span class="brand-t">SY Digital</span><span class="brand-s">Nagpur's digital studio</span></span>
+        </a>
+        <ul class="links" aria-label="Primary navigation">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" aria-current="page">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a class="cta" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container grid">
+          <div class="reveal">
+            <p class="eyebrow">3D services studio</p>
+            <h1 class="title">Our <span>Services</span></h1>
+            <p class="copy">Clean, fast, AI-assisted builds for businesses that want a premium web presence without the agency overhead. Everything here matches the dark glassmorphism system already on the site.</p>
+            <div class="actions">
+              <a class="btn primary" href="pricing.html">See Pricing</a>
+              <a class="btn outline" href="contact.html">Start a Project</a>
+            </div>
+          </div>
+
+          <div class="scene float reveal">
+            <div class="badge"><span class="dot" aria-hidden="true"></span>Spline Eternal Orb Loop</div>
+            <div style="position:absolute;inset:0;z-index:1" aria-hidden="true">
+              <spline-viewer url="https://my.spline.design/theeternalorbloop-68BqK2zCLg6XAPlZkQcpAplX/"></spline-viewer>
+            </div>
+            <div class="meta">
+              <div class="chip"><span class="label">Style</span><span class="value">Dark glass + neon motion</span></div>
+              <div class="chip"><span class="label">Delivery</span><span class="value">Fast turnaround in days</span></div>
+              <div class="chip"><span class="label">Support</span><span class="value">WhatsApp-first workflow</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mini-wrap">
+          <div class="reveal">
+            <div class="mini"><spline-viewer url="https://app.spline.design/community/file/3ff7b617-2fe9-46c7-8e06-b6d7c382f4db"></spline-viewer></div>
+            <p class="mini-cap">A second 3D accent scene that keeps the page feeling alive and premium.</p>
+          </div>
+          <div class="reveal">
+            <div class="mini"><spline-viewer url="https://app.spline.design/community/file/306ca2a5-d1ab-46ac-a27c-198575c82db0"></spline-viewer></div>
+            <p class="mini-cap">Use this extra orb as a secondary visual layer for the services experience.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="container">
+          <div class="sec-head reveal">
+            <div>
+              <h2 class="sec-title">Service Categories</h2>
+              <p class="sec-note">Each category is a polished glass card with direct pricing, clear deliverables, and a WhatsApp CTA.</p>
+            </div>
+          </div>
+
+          <div class="cards">
+            <article class="card reveal tilt-card" data-tilt data-tilt-max="10" data-tilt-speed="450" data-tilt-glare="true" data-tilt-max-glare="0.14">
+              <div class="card-in">
+                <div class="top"><div><p class="kicker">WEBSITES</p><h3 class="name">Conversion-focused web builds</h3><p class="desc">Responsive, elegant websites designed to look premium on day one and scale with your business.</p></div><div class="badge2">Starting from<strong>₹3,000</strong></div></div>
+                <div class="offerings">
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Landing Page</div><div class="offer-price">₹3,000–5,000</div></div><div class="meta2"><span class="pill">Single page</span><span class="pill">Lead focused</span></div><ul class="list"><li>Hero, services, CTA, and contact sections</li><li>Mobile responsive and lightning fast</li><li>Basic on-page SEO setup</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Full Website</div><div class="offer-price">₹8,000–12,000</div></div><div class="meta2"><span class="pill">Multi-page</span><span class="pill">Agency-grade</span></div><ul class="list"><li>Home, services, about, contact, and extra pages</li><li>Custom layouts with polished motion</li><li>Optimized for trust and conversion</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">E-commerce</div><div class="offer-price">₹15,000–25,000</div></div><div class="meta2"><span class="pill">Store setup</span><span class="pill">Product ready</span></div><ul class="list"><li>Product pages, cart flow, and checkout support</li><li>Catalog structure and conversion-focused UI</li><li>Basic store management guidance</li></ul></div>
+                </div>
+                <div class="foot"><div class="delivery">Delivery time<strong>2 to 7 days depending on scope</strong></div><a class="wa" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" rel="noopener noreferrer">WhatsApp CTA</a></div>
+              </div>
+            </article>
+
+            <article class="card reveal tilt-card" data-tilt data-tilt-max="10" data-tilt-speed="450" data-tilt-glare="true" data-tilt-max-glare="0.14">
+              <div class="card-in">
+                <div class="top"><div><p class="kicker">GOOGLE BUSINESS</p><h3 class="name">Local discovery that brings calls</h3><p class="desc">A solid Google Business Profile helps customers find you faster, trust you sooner, and contact you instantly.</p></div><div class="badge2">Starting from<strong>₹1,500</strong></div></div>
+                <div class="offerings">
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Profile Setup</div><div class="offer-price">₹1,500</div></div><div class="meta2"><span class="pill">Listing creation</span><span class="pill">Verified basics</span></div><ul class="list"><li>Business details, categories, and service areas</li><li>Profile description and contact details</li><li>Initial optimization guidance</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Optimization</div><div class="offer-price">₹2,000</div></div><div class="meta2"><span class="pill">Visibility boost</span><span class="pill">Search ready</span></div><ul class="list"><li>Keywords, categories, hours, and service tuning</li><li>Photo guidance and profile polishing</li><li>Better local search presentation</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Review Management</div><div class="offer-price">₹1,000/mo</div></div><div class="meta2"><span class="pill">Monthly support</span><span class="pill">Trust building</span></div><ul class="list"><li>Review request templates and reply support</li><li>Ongoing profile maintenance</li><li>Customer trust and reputation handling</li></ul></div>
+                </div>
+                <div class="foot"><div class="delivery">Delivery time<strong>1 to 3 days</strong></div><a class="wa" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" rel="noopener noreferrer">WhatsApp CTA</a></div>
+              </div>
+            </article>
+
+            <article class="card reveal tilt-card" data-tilt data-tilt-max="10" data-tilt-speed="450" data-tilt-glare="true" data-tilt-max-glare="0.14">
+              <div class="card-in">
+                <div class="top"><div><p class="kicker">BRANDING</p><h3 class="name">Identity systems with a sharp edge</h3><p class="desc">From logo direction to social visuals, we shape a visual identity that feels consistent across touchpoints.</p></div><div class="badge2">Starting from<strong>₹2,000</strong></div></div>
+                <div class="offerings">
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Logo Design</div><div class="offer-price">₹2,000–4,000</div></div><div class="meta2"><span class="pill">Concept-led</span><span class="pill">Custom marks</span></div><ul class="list"><li>Primary logo ideas and refined final mark</li><li>Color direction and typography pairing</li><li>Clean files ready for use</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Full Brand Kit</div><div class="offer-price">₹5,000–8,000</div></div><div class="meta2"><span class="pill">Brand system</span><span class="pill">Consistency</span></div><ul class="list"><li>Logo suite, palette, typography, and usage rules</li><li>Brand mood direction for a professional look</li><li>Built for future website and social use</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Social Media Kit</div><div class="offer-price">₹3,000</div></div><div class="meta2"><span class="pill">Templates</span><span class="pill">Ready to post</span></div><ul class="list"><li>Feed post and story direction</li><li>Reusable design components for quick posting</li><li>Brand-consistent visual identity across platforms</li></ul></div>
+                </div>
+                <div class="foot"><div class="delivery">Delivery time<strong>2 to 6 days</strong></div><a class="wa" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" rel="noopener noreferrer">WhatsApp CTA</a></div>
+              </div>
+            </article>
+
+            <article class="card reveal tilt-card" data-tilt data-tilt-max="10" data-tilt-speed="450" data-tilt-glare="true" data-tilt-max-glare="0.14">
+              <div class="card-in">
+                <div class="top"><div><p class="kicker">MAINTENANCE</p><h3 class="name">Ongoing support that keeps things smooth</h3><p class="desc">Perfect for businesses that want updates, monitoring, and dependable support after launch.</p></div><div class="badge2">Starting from<strong>₹500/mo</strong></div></div>
+                <div class="offerings">
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Basic</div><div class="offer-price">₹500/mo</div></div><div class="meta2"><span class="pill">Light support</span><span class="pill">Updates</span></div><ul class="list"><li>Small content edits and link fixes</li><li>General website checkups</li><li>Ideal for simple business sites</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Standard</div><div class="offer-price">₹1,000/mo</div></div><div class="meta2"><span class="pill">Priority support</span><span class="pill">Monthly updates</span></div><ul class="list"><li>Regular edits and performance checks</li><li>Priority response for site changes</li><li>Good fit for active businesses</li></ul></div>
+                  <div class="offer"><div class="offer-top"><div class="offer-title">Premium</div><div class="offer-price">₹2,000/mo</div></div><div class="meta2"><span class="pill">Full care</span><span class="pill">Ongoing improvements</span></div><ul class="list"><li>More frequent edits and support requests</li><li>Maintenance for changing content and sections</li><li>Best for growth-focused businesses</li></ul></div>
+                </div>
+                <div class="foot"><div class="delivery">Delivery time<strong>Monthly plan, always on</strong></div><a class="wa" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" rel="noopener noreferrer">WhatsApp CTA</a></div>
+              </div>
+            </article>
+          </div>
+
+          <p class="sec-foot reveal">Need a custom mix of website, branding, and Google Business support? We can combine packages into a cleaner quote.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-in">
+        <div><div class="footer-name">SY Digital</div><p class="footer-copy">Dark, modern, AI-assisted websites and visuals built for businesses that want a sharper online presence.</p></div>
+        <nav class="footer-links" aria-label="Footer quick links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></nav>
+        <div class="socials" aria-label="Social links">
+          <a class="social" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg></a>
+          <a class="social" href="https://instagram.com/sydigital" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16.5 7.5h.01"/><rect x="7" y="7" width="10" height="10" rx="5"/></svg></a>
+        </div>
+      </div>
+      <div class="bottom"><span>&copy; 2025 SY Digital. Built in Nagpur with AI.</span><span>3D visuals, glassmorphism, and fast WhatsApp-first service flow.</span></div>
+    </footer>
+  </div>
+
+  <script>
+    (function(){const els=document.querySelectorAll('.reveal');const io=new IntersectionObserver((entries)=>{entries.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.18,rootMargin:'0px 0px -10% 0px'});els.forEach((el)=>io.observe(el));if(window.VanillaTilt){VanillaTilt.init(document.querySelectorAll('.tilt-card'),{max:10,speed:450,scale:1.01,glare:true,'max-glare':.14})}})();
+  </script>
+</body>
+</html>
