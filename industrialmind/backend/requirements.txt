@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+httpx
+pydantic
+pydantic-settings
+python-dotenv
+chromadb
+pymupdf
+langfuse
+websockets
+numpy
+scipy
+# sqlite3 is included in Python standard library
