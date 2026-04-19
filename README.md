@@ -19,7 +19,7 @@ IndustrialMind is an open-source, production-grade AI platform that connects ind
 
 This is not a toy project. This is a real system built with production-grade engineering practices — RAG pipelines, WebSocket streaming, LLM observability, anomaly detection, and full CI/CD.
 
----
+---    
 
 ## ✨ Features
 
