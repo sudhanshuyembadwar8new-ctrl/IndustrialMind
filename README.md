@@ -333,7 +333,7 @@ Other projects:
 - [aria-diagnostics](https://aria-diagnostics-production.up.railway.app) — AI fault diagnostics
 - [MindMap AI](https://mindmap-ai-iota.vercel.app) — AI mind map generator
 - [MoodFM](https://moodfm.vercel.app) — AI mood-based music recommender
-- [COSMOS](https://cosmo-steel.vercel.app) — 3D universe portfolio
+- [COSMOS](https://cosmo-steel.vercel.app) — 3D universe portfolio word
 
 ---
 
