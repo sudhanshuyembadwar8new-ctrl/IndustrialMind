@@ -1,7 +1,7 @@
 # ⚡ IndustrialMind
 
 > **AI-powered Industrial IoT platform** that lets you talk to your factory in natural language.
-> Monitor live sensors, predict failures before they happen, and ask questions about your machines — all from one dashboard.
+> Monitor live sensors, predict failures before they happen, and ask questions about your machines — all from one dashboard.           
 
 🌐 **Live Demo:** https://industrialmind-antigravity.netlify.app
 📦 **GitHub:** https://github.com/sudhanshuyembadwar8-ctrl/IndustrialMind
