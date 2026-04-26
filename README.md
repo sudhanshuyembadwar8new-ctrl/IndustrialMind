@@ -4,7 +4,7 @@
 > Monitor live sensors, predict failures before they happen, and ask questions about your machines — all from one dashboard.           
 
 🌐 **Live Demo:** https://industrialmind-antigravity.netlify.app
-📦 **GitHub:** https://github.com/sudhanshuyembadwar8-ctrl/IndustrialMind
+📦 **GitHub:** https://github.com/sudhanshuyembadwar8-ctrl/IndustrialMind           
 🛠 **Built by:** Sudhanshu Yembadwar — First year B.Tech IIoT, SVPCET Nagpur
 
 ---
