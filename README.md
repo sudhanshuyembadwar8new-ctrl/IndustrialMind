@@ -6,23 +6,23 @@
 🌐 **Live Demo:** https://industrialmind-antigravity.netlify.app
 📦 **GitHub:** https://github.com/sudhanshuyembadwar8-ctrl/IndustrialMind           
 🛠 **Built by:** Sudhanshu Yembadwar — First year B.Tech IIoT, SVPCET Nagpur
-
+                                    
 ---
 
 ## 🧠 What Is IndustrialMind?
 
 IndustrialMind is an open-source, production-grade AI platform that connects industrial sensor systems to a large language model brain. Instead of staring at raw numbers on a screen, you can literally *ask your factory* what's wrong.
 
-**Example:**
+**Example:**                               
 > 💬 "Which machine is closest to failure right now?"
 > 🤖 "Motor 2 on Machine A has a bearing temperature rising 14°C over 6 hours. Failure probability: 78%. Estimated time to failure: 18 hours. Recommend immediate lubrication or replacement."
-
-This is not a toy project. This is a real system built with production-grade engineering practices — RAG pipelines, WebSocket streaming, LLM observability, anomaly detection, and full CI/CD.
+                               
+This is not a toy project. This is a real system built with production-grade engineering practices — RAG pipelines, WebSocket streaming, LLM observability, anomaly detection, and full CI/CD.                          
 
 ---    
 
 ## ✨ Features
-
+                                   
 | Feature | Description |
 |---|---|
 | 📡 **Live Sensor Dashboard** | Real-time streaming charts for 6 sensors across 3 machines (A, B, C) |
