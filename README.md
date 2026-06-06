@@ -7,7 +7,7 @@
 📦 **GitHub:** https://github.com/sudhanshuyembadwar8-ctrl/IndustrialMind           
 🛠 **Built by:** Sudhanshu Yembadwar — First year B.Tech IIoT, SVPCET Nagpur
                                     
----
+---        
 
 ## 🧠 What Is IndustrialMind?
 
@@ -19,7 +19,7 @@ IndustrialMind is an open-source, production-grade AI platform that connects ind
                                
 This is not a toy project. This is a real system built with production-grade engineering practices — RAG pipelines, WebSocket streaming, LLM observability, anomaly detection, and full CI/CD.                          
 
----    
+---         
 
 ## ✨ Features
                                    
@@ -180,7 +180,7 @@ LANGFUSE_SECRET_KEY=your_key
 LANGFUSE_PUBLIC_KEY=your_key
 LANGFUSE_HOST=http://localhost:3000
 ```
-
+        
 ---
 
 ## 📡 API Endpoints
