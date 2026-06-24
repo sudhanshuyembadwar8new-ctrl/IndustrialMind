@@ -7,9 +7,9 @@
 📦 **GitHub:** https://github.com/sudhanshuyembadwar8-ctrl/IndustrialMind           
 🛠 **Built by:** Sudhanshu Yembadwar — First year B.Tech IIoT, SVPCET Nagpur
                                     
----        
+---             
 
-## 🧠 What Is IndustrialMind?
+## 🧠 What Is IndustrialMind?     
 
 IndustrialMind is an open-source, production-grade AI platform that connects industrial sensor systems to a large language model brain. Instead of staring at raw numbers on a screen, you can literally *ask your factory* what's wrong.
 
